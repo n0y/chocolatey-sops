@@ -3,6 +3,7 @@
     "config:base",
     ":dependencyDashboard"
   ],
+  automerge: true,
   customManagers: [
     {
       customType: "regex",
