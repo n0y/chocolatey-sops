@@ -7,7 +7,7 @@
     {
       customType: "regex",
       fileMatch: [
-        "^versions.properties$"
+        "versions.properties"
       ],
       matchStrings: [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?( extractVersion=(?<extractVersion>.*?))?( versioning=(?<versioning>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?_VERSION=(?<currentValue>.*)\\s"
