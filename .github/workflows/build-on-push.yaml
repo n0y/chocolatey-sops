@@ -9,7 +9,7 @@ jobs:
     uses: ./.github/workflows/part-package-and-test.yaml
 
   check_tag_exists:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -26,6 +26,6 @@ jobs:
 
   create-tag-and-release:
     needs: check_tag_exists
-    if: ${{ (needs.check_tag_exists.outputs.tag_exists == 'false') && github.ref == 'refs/heads/main' }}
+    if: ${{ (needs.check_tag_exists.outputs.tag_exists == 'false') && github.ref == 'refs/heads/master' }}
     secrets: inherit
     uses: ./.github/workflows/part-release-tag.yaml
