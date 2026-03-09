@@ -3,7 +3,7 @@ $SopsVersion = $Props.UPSTREAM_VERSION
 "Building Upstream Version: $SopsVersion"
 ""
 
-$ChecksumResponse = Invoke-WebRequest -Uri "https://github.com/getsops/sops/releases/download/v$SopsVersion/sops-v$SopsVersion.checksums.txt"
+$ChecksumResponse = Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/getsops/sops/releases/download/v$SopsVersion/sops-v$SopsVersion.checksums.txt"
 $SopsChecksum = (($ChecksumResponse.tostring() -split "[`r`n]" | Select-String "sops-v$SopsVersion.amd64.exe" | select -First 1) -split " ")[0].ToUpper()
 
 "Discovered Checksum: $SopsChecksum"
